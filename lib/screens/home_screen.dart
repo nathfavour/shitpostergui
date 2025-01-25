@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/post_provider.dart';
-import '../widgets/custom_button.dart';
 import '../widgets/post_card.dart';
 import '../widgets/navigation_drawer.dart';
 import '../widgets/stats_card.dart';
+import '../widgets/new_post_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
