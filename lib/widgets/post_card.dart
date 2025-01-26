@@ -40,12 +40,12 @@ class PostCard extends StatelessWidget {
                 PopupMenuButton(
                   itemBuilder: (context) => [
                     PopupMenuItem(
-                      child: Text('Edit'),
                       value: 'edit',
+                      child: Text('Edit'),
                     ),
                     PopupMenuItem(
-                      child: Text('Delete'),
                       value: 'delete',
+                      child: Text('Delete'),
                     ),
                   ],
                   onSelected: (value) {

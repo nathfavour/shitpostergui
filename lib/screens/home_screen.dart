@@ -7,6 +7,8 @@ import '../widgets/stats_card.dart';
 import '../widgets/new_post_dialog.dart';
 
 class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final postProvider = Provider.of<PostProvider>(context);
