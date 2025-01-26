@@ -24,7 +24,7 @@ class CustomNavigationDrawer extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 Text(
-                  'Social Media Manager',
+                  'Shit Poster Agent',
                   style: Theme.of(context).textTheme.titleLarge?.copyWith(
                         color: Colors.white,
                       ),

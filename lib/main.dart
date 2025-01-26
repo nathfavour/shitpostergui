@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ShitPoster GUI',
+      title: 'Shit Poster Agent',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
