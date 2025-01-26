@@ -9,68 +9,93 @@ class PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
-      child: Container(
+      child: Padding(
         padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(12),
-          gradient: LinearGradient(
-            colors: [
-              Theme.of(context).cardColor,
-              Theme.of(context).cardColor.withOpacity(0.8),
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  child: Text(
-                    post.content,
-                    style: Theme.of(context).textTheme.titleMedium,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                Icon(Icons.schedule, color: Colors.blue),
+                SizedBox(width: 8),
+                Text(
+                  post.scheduledTime.toString().split('.')[0],
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
+                Spacer(),
                 PopupMenuButton(
                   itemBuilder: (context) => [
                     PopupMenuItem(
-                      value: 'edit',
                       child: Text('Edit'),
+                      value: 'edit',
                     ),
                     PopupMenuItem(
-                      value: 'delete',
                       child: Text('Delete'),
+                      value: 'delete',
                     ),
                   ],
-                  onSelected: (value) {
-                    // Handle menu actions
-                  },
                 ),
               ],
             ),
-            Spacer(),
+            Divider(),
+            Expanded(
+              child: Text(
+                post.content,
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+            ),
+            Divider(),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Chip(
-                  label: Text(
-                    'Scheduled',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  backgroundColor: Colors.blue,
+                _ActionButton(
+                  icon: Icons.edit,
+                  label: 'Edit',
+                  onTap: () {},
                 ),
-                Text(
-                  '${post.scheduledTime.day}/${post.scheduledTime.month}/${post.scheduledTime.year}',
-                  style: Theme.of(context).textTheme.bodySmall,
+                _ActionButton(
+                  icon: Icons.copy,
+                  label: 'Duplicate',
+                  onTap: () {},
+                ),
+                _ActionButton(
+                  icon: Icons.delete,
+                  label: 'Delete',
+                  onTap: () {},
                 ),
               ],
             ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ActionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback onTap;
+
+  const _ActionButton({
+    required this.icon,
+    required this.label,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(8),
+      child: Padding(
+        padding: EdgeInsets.all(8),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(icon, size: 20),
+            SizedBox(height: 4),
+            Text(label, style: Theme.of(context).textTheme.bodySmall),
           ],
         ),
       ),
