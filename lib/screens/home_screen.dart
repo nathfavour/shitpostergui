@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Social Media Dashboard'),
+        title: Text('Shit Poster Agent'),
         elevation: 0,
         actions: [
           IconButton(
